@@ -1,13 +1,9 @@
 const { Router } = require('express');
-// Importar todos los routers;
-// Ejemplo: const authRouter = require('./auth.js');
 
+const { postActivity } = require('../Controllers/postActivity')
 
 const router = Router();
 
-router.post('/', (req, res) =>{
-    res.send('get activities')
-})
-
+router.post('/', postActivity)
 
 module.exports = router;
