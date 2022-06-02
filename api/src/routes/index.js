@@ -14,6 +14,6 @@ const router = Router();
 // Ejemplo: router.use('/auth', authRouter);
  router.use('/countries', getCountryId)
  router.use('/countries', getCountries)
- router.use('/activities', postActivity)
+ router.use('/activity', postActivity)
 
 module.exports = router;

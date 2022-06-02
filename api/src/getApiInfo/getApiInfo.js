@@ -18,7 +18,7 @@ const getApiInfo = async () => {
         const apiInfo = await apiUrl.data.map(country => {
             return {
                 id: country.cca3,
-                name: country.name.official,
+                name: country.name.common,
                 image: country.flags[0],
                 continent: country.region,
                 capital: country.capital ? country.capital[0] : 'no capital loaded',

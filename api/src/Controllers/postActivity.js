@@ -16,7 +16,7 @@ const postActivity = async (req, res) => {
                 countries.forEach( async (id) => {
                     const nation = await Country.findOne({
                         where: {
-                            id: {[Op.iLike]: '%' + id + '%'}
+                            id: {[Op.iLike]: `%${id}%` }   
                         }
                     })
                     await nation.addActivity(instance)
