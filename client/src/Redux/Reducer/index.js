@@ -13,12 +13,6 @@ const initialState = {
           countries: action.payload,
           allCountries: action.payload
         };
-
-        // case 'GET_COUNTRY_NAME':
-        //   return {
-        //     ...state,
-        //     countries: action.payload
-        // }
   
         case 'GET_COUNTRY_NAME':
           const country = [];
@@ -43,12 +37,35 @@ const initialState = {
           ...state, 
           activities: action.payload
         };
+      
+       
 
         case 'POST_ACTIVITY':
         return {
           ...state,
           activities: [...state.activities, action.payload]
         };
+
+        case 'FILTER_ACTIVITY':
+
+          //filtro los que tienen al menos 1 actividad
+          const actFiltered = state.countries.filter((count) => {return count.activities.length > 0})
+          
+         //almaceno las actividades en el array
+          const activities = [];
+          
+          const filterActivities = action.payload ==='All' ? state.countries : activities;
+          for(let i=0; i<actFiltered.length; i++){
+            for(let j=0; j<actFiltered[i].activities.length; j++){
+              if(actFiltered[i].activities[j].name===action.payload){
+                activities.push(actFiltered[i])
+              }
+            }
+          }
+          return{
+            ...state, 
+            countries: filterActivities
+          };
 
         case 'FILTER_BY_CONTINENT':
           const allCountries = state.allCountries
@@ -62,37 +79,25 @@ const initialState = {
 
           case 'ORDER_BY_NAME':
             let countriesByName = action.payload === 'asc'?
-            state.countries.sort(function(a,b){
-              if(a.name > b.name){
-                return 1;
-              }
-              if(a.name < b.name){
-                return -1;
-              }
-              return 0
+            state.countries.sort((a, b) => {
+              if(a.name > b.name) return 1;
+              if(a.name < b.name) return -1;
+              return 0;
             }):
-            state.countries.sort(function(a,b){
-              if(a.name < b.name){
-                return 1;
-              }
-              if(a.name > b.name){
-                return -1;
-              }
-              return 0
-            })            
+            state.countries.sort((a, b) => {
+              if(a.name < b.name) return 1;
+              if(a.name > b.name) return -1;
+              return 0;
+            })
         return {
           ...state,
           countries: countriesByName
         };
 
         case 'ORDER_BY_POPULATION':
-            let countriesByPopulation = action.payload === 'population asc'?
-            state.countries.sort(function(a,b){
-              return a.population - b.population
-            }):
-            state.countries.sort(function(a,b){
-              return b.population - a.population
-            })
+            let countriesByPopulation = action.payload === 'population asc'
+            ? state.countries.sort((a, b) => a.population - b.population)
+            : state.countries.sort((a, b) => b.population - a.population)
         return {
           ...state,
           countries: countriesByPopulation

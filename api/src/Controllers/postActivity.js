@@ -11,7 +11,7 @@ const postActivity = async (req, res) => {
                     difficulty: difficulty,
                     duration: duration,
                     season: season,
-                },                
+                },
                 });
                 countries.forEach( async (id) => {
                     const nation = await Country.findOne({
@@ -23,10 +23,10 @@ const postActivity = async (req, res) => {
                 })
                 return res.send('Activity created')
         } else {
-            return res.status(404).json('Activity was not created')
+            return res.status(422).json('Activity was not created')
         }
     } catch (error) {
-        return res.status(404).send(error)
+        return res.status(500).send(error)
     }
 }
 

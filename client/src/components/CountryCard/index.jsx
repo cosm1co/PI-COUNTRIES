@@ -1,13 +1,18 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import './index.css'
 
 export default function CountryCard({name, continent, image, id,}) {
   return (
-    <div>
-      <img src={image} alt="not found" width='300px' height='200px'/>
-      <h3>{name}</h3>
-      <h5>{continent}</h5>
-      <Link to = {`/home/details/${id}`} />
-    </div>
+    <Link  to = {`/home/details/${id}`} >
+      <div className='card'>
+        <div >
+          <img className='image' src={image} alt="not found" width='100px' height='50px'/>
+          <h3 className='text'>{name}</h3>
+          <h5 className='text'>{continent}</h5>
+          <h5 className='text'>id: {id}</h5>
+        </div>
+      </div>
+    </Link>
   );
 }

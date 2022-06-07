@@ -1,4 +1,5 @@
 import React from 'react'
+import './index.css'
 
 export default function Paginado({countriesPerPage, allCountries, paginado}) {
     const pageNumbers = []
@@ -6,11 +7,11 @@ export default function Paginado({countriesPerPage, allCountries, paginado}) {
         pageNumbers.push(i+1)        
     }
     return (
-        <nav>
-            <div>
+        <nav className='cnt'>
+            <div >
                 {pageNumbers?.map(number => (
                     
-                    <button onClick={()=> paginado(number)}>{number}</button>
+                    <button className='btn' key={number} onClick={()=> paginado(number)}>{number}</button>
                     
                 ))}
             </div>

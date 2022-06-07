@@ -5,41 +5,37 @@ import { getCountryByName } from '../../Redux/Action';
 import './index.css'
 
 export default function SearchBar() {
-  const [name, setName] = useState('');
   const dispatch = useDispatch();
+  const [name, setName] = useState('');
+  const [order, setOrder]= useState('');
 
-  function handleInputChange(e){
+  function handleChange(e){
     e.preventDefault()
     setName(e.target.value)
-    console.log(name)
   }
 
-  // function handleSubmit(e){
-  //   e.preventDefault();
-  //   if(search !== ''){
-  //   dispatch(getCountryByName(search))
-  //   setSearch('')
-  //   setOrder(`Ordenado: ${e.target.value}`)
-  //   } else {
-  //     alert('Please enter a valid country')
-  //   }
-  // }
-
+  
   function handleSubmit(e){
-    dispatch(getCountryByName(name))
-    setName('')
+    e.preventDefault()
+    if(name !== ''){
+      dispatch(getCountryByName(name))
+      setName('')
+      setOrder(`Ordenado: ${e.target.value}`)
+      } else {
+        alert('Please enter a country name')
+      }
   }
 
   return (
     <div>
       <input
-      type = "text"
-      placeholder='Search...'
-      onChange={(e)=>handleInputChange(e)}
-      value = {name}
       className='searchImput'
+      type = "text"
+      value = {name}
+      placeholder='Search...'
+      onChange={(e)=>handleChange(e)}
       />
-      <button type='submit' onClick={(e) => handleSubmit(e)}>Search</button>
+      <button className='btnsearch' type='submit' onClick={(e) => handleSubmit(e)}>Search</button>
     </div>
   )
 }

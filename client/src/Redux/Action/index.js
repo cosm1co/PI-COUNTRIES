@@ -12,16 +12,6 @@ export const getCountryByName = (name) => (dispatch) => {
     .catch((error) => console.log(error))
   };
 
-// export const getCountryById= (id) => (dispatch) => {
-//     return axios.get(`http://localhost:3001/countries/${id}`)
-//     .then((info) => dispatch({type: 'GET_COUNTRY_ID', payload: info.data}))
-//     .catch((error) => console.log(error))
-// };
-
-// export const getCountryById= (id) => (dispatch) => 
-//     axios.get(`http://localhost:3001/countries/${id}`)
-//     .then((info) => dispatch({type: 'GET_COUNTRY_ID', payload: info.data}))
-//     .catch((error) => console.log(error))
 
 export const getCountryById = (id) => async (dispatch) => {
     return axios.get(`http://localhost:3001/countries/${id}`)
@@ -31,7 +21,7 @@ export const getCountryById = (id) => async (dispatch) => {
 
 
 export const getActivity= () => (dispatch) => {
-    return axios.get(`http://localhost:3001/activity`)
+    return axios.get(`http://localhost:3001/activity/all`)
     .then((info) => dispatch({type: 'GET_ACTIVITY', payload: info.data}))
     .catch((error) => console.log(error))
 };
@@ -47,6 +37,13 @@ export function postActivity(body) {
         } catch (error) {
             console.log(error)
         }
+    }
+}
+
+export function filterActivity(activity){
+    return {
+        type: 'FILTER_ACTIVITY',
+        payload: activity
     }
 }
 
