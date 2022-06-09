@@ -20,10 +20,10 @@
     margin-right: 2px;
    }
 
-   .cnt{
+   /* .cnt{
        align-items: center;
        display: flex;    
-   }
+   } */
    
    .btn:hover {
     transform: translateY(-3px);

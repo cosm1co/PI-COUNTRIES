@@ -1,16 +1,6 @@
-// const { Router } = require('express');
 const axios = require('axios');
 const { Country } = require('../db');
-// Importar todos los routers;
-// Ejemplo: const authRouter = require('./auth.js');
 
-
-
-// const router = Router();
-
-
-// Configurar los routers
-// Ejemplo: router.use('/auth', authRouter);
 
 const getApiInfo = async () => {
     try {       
@@ -21,9 +11,10 @@ const getApiInfo = async () => {
                 name: country.name.common,
                 image: country.flags[0],
                 continent: country.region,
-                capital: country.capital ? country.capital[0] : 'no capital loaded',
-                subregion: country.subregion ? country.subregion : 'no subregion loaded',
-                population: country.population
+                capital: country.capital ? country.capital[0] : 'Capital not found',
+                area: country.area ? country.area : 'Area not found',
+                subregion: country.subregion ? country.subregion : 'Subregion not found',
+                population: country.population 
             };
         });
         await Country.bulkCreate(apiInfo)

@@ -12,9 +12,9 @@ import {
 import { Link } from 'react-router-dom';
 import CountryCard from '../CountryCard';
 import Paginado from '../Paginado';
-import NavBar from '../NavBar'
+import NavBar from '../NavBar';
 import Header from '../Header';
-import './index.css'
+import './index.css';
 
 export default function Home() {
   const dispatch = useDispatch();
@@ -67,7 +67,7 @@ export default function Home() {
 
   function handleActivity(e){
     dispatch(filterActivity(e.target.value));
-}
+  }
 
   return (
 

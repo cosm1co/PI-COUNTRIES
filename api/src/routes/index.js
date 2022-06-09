@@ -4,12 +4,9 @@ const { Router } = require('express');
 const getCountries = require('./getCountries.js')
 const getCountryId = require('./getCountryId.js')
 const postActivity = require('./postActivity.js')
-const getActivities = require('./getActivities.js');
-
-
+const getActivities = require('./getActivities.js')
 
 const router = Router();
-
 
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);

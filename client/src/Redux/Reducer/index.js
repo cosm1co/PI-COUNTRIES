@@ -8,7 +8,7 @@ const initialState = {
   const rootReducer = (state = initialState, action) => {
     switch (action.type) {
       case 'GET_ALL_COUNTRIES':
-        return { 
+        return {
           ...state,
           countries: action.payload,
           allCountries: action.payload
@@ -18,7 +18,7 @@ const initialState = {
           const country = [];
           if(!action.payload.name){
             return "This Country doesn't exist"
-          } else{
+          } else {
             country.push(action.payload)
           }
           return { 

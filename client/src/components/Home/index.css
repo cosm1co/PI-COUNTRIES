@@ -14,46 +14,23 @@
     flex-direction: column;
     background-image: url(italy.jpg);
     background-position: center;
-    object-fit: cover;
+    background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;    
 }
-
-
 
 .navbar{
     display: flex;
     justify-content: center;
 }
 
-/* .container{
+.container{
     width: 100px;
     height: 100px;
     float: left;
-    margin-top: 50px;
-    padding-top: 100px;
-    padding-left: 200px;
-    padding-right: 200px;
+    padding-top: 50px;
+    padding-left: 150px;
+    padding-right: 100px;
     padding-bottom: 300px;
     display: flex;
-    justify-content: center;
-} */
-
-/* .container{
-    display: flex;
-    justify-content: center;
-    background-color: #fff;
-    margin-bottom: 40px;
-    margin-top: 40px;
-} */
-
-.container{
-    display: flex;
-    position: relative;
-    justify-content: center;
-    background-color: #fff;
 }
-
-
-
-

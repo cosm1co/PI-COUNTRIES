@@ -5,7 +5,7 @@ const postActivity = async (req, res) => {
     try {
         const {name, difficulty, duration, season, countries} = req.body
         if(name && difficulty && duration && season && countries){
-            const [ instance ] = await Activity.findOrCreate({
+            const [ activity ] = await Activity.findOrCreate({
                 where: {
                     name: name,
                     difficulty: difficulty,
@@ -19,11 +19,11 @@ const postActivity = async (req, res) => {
                             id: {[Op.iLike]: `%${id}%` }   
                         }
                     })
-                    await nation.addActivity(instance)
+                    await nation.addActivity(activity)
                 })
                 return res.send('Activity created')
         } else {
-            return res.status(422).json('Activity was not created')
+            return res.status(422).json('Activity not created')
         }
     } catch (error) {
         return res.status(500).send(error)

@@ -1,8 +1,8 @@
-const router = require('express').Router();
+const { Router } = require('express');
 
 const { getCountries } = require('../Controllers/getCountries')
 
-// const router = Router();
+const router = Router();
 
 router.get('/', getCountries)
 

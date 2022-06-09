@@ -6,13 +6,12 @@ const getActivities =  async (req, res) => {
         const activities = await Activity.findAll()           
         if(activities){
             res.json(activities)        
-        } else{
+        } else {
             res.status(404).send("Activity not found")
         }
-    
         } catch (error) {
             res.status(404).json(error)
     }
 }
 
-module.exports = {getActivities}
+module.exports = { getActivities }

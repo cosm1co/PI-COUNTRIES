@@ -25,8 +25,6 @@ export default function NavBar({byName, byPopulation, byContinent, byActivities}
 
   return (
     <div className='cntnav'>
-
-        
         <button className='btnreload' onClick={(e)=> {handleClick(e)}}>RELOAD COUNTRIES</button>
         <div className='cntselect'>
               <select className='select' onChange={(e) => byContinent(e)}>

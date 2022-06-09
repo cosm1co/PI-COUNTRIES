@@ -4,7 +4,7 @@ import './index.css'
 export default function Paginado({countriesPerPage, allCountries, paginado}) {
     const pageNumbers = []
     for (let i = 0; i < Math.ceil(allCountries/countriesPerPage); i++) {
-        pageNumbers.push(i+1)        
+        pageNumbers.push(i+1)
     }
     return (
         <nav className='cnt'>

@@ -3,6 +3,7 @@ import { Link, useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { getCountryById } from '../../Redux/Action'
 import { useEffect } from 'react'
+import './index.css'
 
 export default function Details() {
   const dispatch = useDispatch();
@@ -14,23 +15,26 @@ export default function Details() {
   },[dispatch,id])
 
   return (
-    <div>
+    <div className='detailbg'>
+      <Link to='/home'><button className='btndetail'>Back HOME</button></Link>
       {
         countryDetail?
         <div>
-          <h1>{countryDetail.name}</h1>
-          <img src={countryDetail.image} alt="not found" width='300px' height='200px'/>
-          <h2>{countryDetail.continent}</h2>
-          <h2>{countryDetail.capital}</h2>
-          <h3>Area: {countryDetail.area}</h3>
-          <h4>Subregion: {countryDetail.subregion}</h4>
-          <h4>Population: {countryDetail.population}</h4>
-          <h3>Id: {countryDetail.id}</h3>
+            <div className='cntdetail'>
+              <h1>{countryDetail.name}</h1>
+              <img className='imgdetail' src={countryDetail.image} alt="not found"/>
+              <h3>Continent: {countryDetail.continent}</h3>
+              <h3>Capital: {countryDetail.capital}</h3>
+              <h4>Area: {countryDetail.area} km2</h4>
+              <h4>Subregion: {countryDetail.subregion}</h4>
+              <h4>Population: {countryDetail.population}</h4>
+              <h3>Id: {countryDetail.id}</h3>
+            </div>
           <div>
             {
               countryDetail.activities?.map((c) =>{
                 return(
-                  <div>
+                  <div className='cntactivity'>
                     <h5>Activities: {c.name}</h5>
                     <h5>Difficulty: {c.difficulty}</h5>
                     <h5>Duration: {c.duration}</h5>
@@ -40,10 +44,10 @@ export default function Details() {
               })
             }
           </div>
-          <Link to='/home'><button>Back</button></Link>
+          
         </div>:
         <p>Loading...</p>
       }
-      </div>
+    </div>
       )
 }
