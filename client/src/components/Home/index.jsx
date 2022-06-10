@@ -7,9 +7,8 @@ import {
     filterByContinent,
     orderByName,
     orderByPopulation,
-    filterActivity
+    filterActivity,
   } from '../../Redux/Action';
-import { Link } from 'react-router-dom';
 import CountryCard from '../CountryCard';
 import Paginado from '../Paginado';
 import NavBar from '../NavBar';
@@ -49,6 +48,7 @@ export default function Home() {
 
   function handleContinent(e){
     dispatch(filterByContinent(e.target.value))
+    setCurrentPage(1)
   }
 
   function handlePopulation(e){
@@ -67,6 +67,7 @@ export default function Home() {
 
   function handleActivity(e){
     dispatch(filterActivity(e.target.value));
+    setCurrentPage(1)
   }
 
   return (

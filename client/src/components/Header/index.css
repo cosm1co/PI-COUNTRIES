@@ -19,3 +19,11 @@
     float: left;
 }
 
+.linkheader{
+    text-decoration: none;
+    color: white;
+    margin: 10px;
+    font-family: inherit;
+}
+
+

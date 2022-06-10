@@ -10,7 +10,7 @@ export default function Header() {
 
   return (
     <div className='cntheader'>
-      <Link to={'/home/activities'}>CREATE ACTIVITY</Link>
+      <Link className='linkheader' to={'/home/activities'}>CREATE ACTIVITY</Link>
         <SearchBar/>
     </div>
   )

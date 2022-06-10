@@ -29,7 +29,7 @@ export default function SearchBar() {
   return (
     <div>
       <input
-      className='searchImput'
+      className='inputsearch'
       type = "text"
       value = {name}
       placeholder='Search...'
